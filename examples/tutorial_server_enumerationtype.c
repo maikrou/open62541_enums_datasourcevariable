@@ -69,7 +69,6 @@ addEnumValues(UA_Server *server, UA_Int16 nsIndex, UA_NodeId parentNodeId) {
     vAttr.dataType = UA_TYPES[UA_TYPES_ENUMVALUETYPE].typeId;
 
     UA_EnumValueType enumValues[ENUMVALUES_LEN];
-
     for(size_t i = 0; i < ENUMVALUES_LEN; ++i) {
         enumValues[i].value = (UA_Int64)(i);
         char name[] = "EnumValue   ";
@@ -102,7 +101,7 @@ addLocalizedText(UA_Server *server, UA_Int16 nsIndex, UA_NodeId parentNodeId) {
     vAttr.displayName = UA_LOCALIZEDTEXT("", "EnumStrings");
     vAttr.dataType = UA_TYPES[UA_TYPES_LOCALIZEDTEXT].typeId;
 
-    UA_LocalizedText enumStrings[ENUMVALUES_LEN] = {'\0'};
+    UA_LocalizedText enumStrings[ENUMVALUES_LEN];
     for(size_t i = 0; i < ENUMVALUES_LEN; ++i) {
         char text[] = "EnumString   ";
         snprintf(text + 11, sizeof(text), "%d", (int)i);
